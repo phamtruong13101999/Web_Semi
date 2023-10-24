@@ -34,7 +34,7 @@ class TaskForm(FlaskForm):
     inputDeadline = DateTimeLocalField('Deadline', format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
     def validate_inputDeadline(self, inputDeadline):
         if inputDeadline.data < datetime.now():
-            raise ValidationError("Deadline cannot be in the past.")
+            raise ValidationError("Deadline can'tbe in the past.")
         
          
     inputProject = SelectField('Project', coerce = int)
@@ -49,7 +49,7 @@ class ProjectForm(FlaskForm):
     inputName = StringField('Project Name',
         [DataRequired(message="Please enter your project name!")])
     inputDescription = StringField('Project Description',
-        [DataRequired(message="Please enter your project content!")])
+        [DataRequired(message="Please enter your project!")])
     
     inputDeadline = DateTimeLocalField('Deadline', format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
     def validate_inputDeadline(self, inputDeadline):

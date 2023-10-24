@@ -7,7 +7,7 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'KietTT Python-Flask Web App'
+app.config['SECRET_KEY'] = 'TruongPham Python-Flask Web App'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -348,6 +348,9 @@ def search_by_name_project():
     else:
         return redirect('/')
 
+@app.route('/logOut')
+def logOut():
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port='8080', debug=True)
